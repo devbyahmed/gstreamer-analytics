@@ -1,0 +1,67 @@
+# Video Object Detection Configuration
+
+# Model Settings
+model:
+  path: "yolov8n.pt"  # YOLO model path
+  confidence_threshold: 0.5
+  device: "cpu"  # "cpu" or "cuda"
+  half_precision: false
+
+# Video Processing Settings
+video:
+  output_width: 1280
+  output_height: 720
+  output_fps: 25
+  codec: "mp4v"  # Video codec for output
+
+# Webcam Settings
+webcam:
+  device_id: 0  # Default webcam device
+  width: 1280
+  height: 720
+  fps: 30
+
+# Pipeline Settings
+pipeline:
+  max_queue_size: 1000
+  processing_threads: 1  # Single thread for sequential processing
+  buffer_size: 500
+  drop_frames: false
+  frame_skip: 1  # Process every frame
+  max_processing_fps: 1000.0
+
+# Analytics Settings
+analytics:
+  enable_tracking: true
+  enable_visualization: true
+  save_analytics: true
+  analytics_interval: 25  # Report progress every N frames
+
+# Output Settings
+output:
+  save_video: true
+  save_analytics: true
+  output_directory: "outputs"
+  temp_directory: "temp"
+  log_directory: "logs"
+
+# Visualization Settings
+visualization:
+  show_confidence: true
+  show_class_names: true
+  box_thickness: 2
+  text_size: 0.6
+  colors_seed: 42  # For consistent colors
+
+# Performance Settings
+performance:
+  enable_gpu_acceleration: false  # Set to true if CUDA available
+  optimize_model: true
+  benchmark_mode: false
+
+# Logging Settings
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  console_output: true
+  file_output: true
+  log_file: "logs/detection.log"
